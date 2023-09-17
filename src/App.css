@@ -1,0 +1,112 @@
+.App {
+  text-align: center;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: black;
+  font-family: 'Urbanist', sans-serif;
+}
+h1{
+  color: white;
+  font-size: 40px;
+}
+button{
+  color: black;
+  background-color: white;
+  padding: 5px;
+  margin: 5px 3px;
+}
+button:hover{
+ cursor: pointer;
+  background-color: rgb(227, 227, 222);
+}
+h4, h5{
+  color: rgb(212, 212, 212);
+  font-size: 16px;
+}
+i{
+  color: rgb(212, 212, 212);
+  font-size: 30px;
+  margin: 5px 0;
+}
+
+/*NAVBAR*/
+.navfullsize{
+  height: 30px;
+  background-color: rgb(66, 152, 66);
+  width: 100%;
+}
+ul li a{
+  display: inline-block;
+  color: rgb(212, 212, 212);
+  text-decoration: none;
+ 
+  padding: 5px 20px;
+}
+ul li a:hover{
+    
+    background-color: rgb(93, 175, 93);
+    
+}
+
+/*INICIO*/
+h2, h3, p{
+  color: rgb(212, 212, 212);
+}
+.cont-preguntas{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 350px);
+  grid-auto-columns: minmax(100px, 200px);
+  
+  padding: 50px;
+  gap: 30px;
+  justify-content: center;
+  align-content: center;
+  
+}
+.preguntas{
+
+  text-align: start;
+  background-color: rgba(66, 65, 65, 0.413);
+  padding: 20px;
+}
+.preguntas:hover{
+  transform: scale(1.02);
+}
+.preguntas p{
+  margin-top: 2rem;
+}
+/*contacto*/
+.labeltext{
+  color: white;
+  text-align: start;
+}
+.contactoform{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  margin-top: 60px;
+}
+.form-group{
+  display: inline-block;
+  margin-top: 20px;
+}
+input{
+  height: 30px;
+  width: 300px;
+}
+textarea{
+  min-width: 300px;
+  max-width: 300px;
+  max-height: 100px;
+  min-height: 70px;
+  font-family: 'Urbanist', sans-serif;
+}
+
