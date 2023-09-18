@@ -17,8 +17,10 @@ h1{
 button{
   color: black;
   background-color: white;
-  padding: 5px;
+  padding: 10px;
   margin: 5px 3px;
+  border: none;
+  border-radius: .3rem;
 }
 button:hover{
  cursor: pointer;
@@ -44,13 +46,13 @@ ul li a{
   display: inline-block;
   color: rgb(212, 212, 212);
   text-decoration: none;
- 
+
   padding: 5px 20px;
 }
 ul li a:hover{
-    
+
     background-color: rgb(93, 175, 93);
-    
+
 }
 
 /*INICIO*/
@@ -61,12 +63,12 @@ h2, h3, p{
   display: grid;
   grid-template-columns: repeat(auto-fit, 350px);
   grid-auto-columns: minmax(100px, 200px);
-  
+
   padding: 50px;
   gap: 30px;
   justify-content: center;
   align-content: center;
-  
+
 }
 .preguntas{
 
@@ -110,3 +112,10 @@ textarea{
   font-family: 'Urbanist', sans-serif;
 }
 
+
+.numero-input::-webkit-inner-spin-button,
+.numero-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
