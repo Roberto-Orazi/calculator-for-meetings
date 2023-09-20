@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/calculator-for-meetings/static/css/main.18086fab.css",
+    "main.js": "/calculator-for-meetings/static/js/main.e94f1856.js",
+    "static/js/787.1aabcd67.chunk.js": "/calculator-for-meetings/static/js/787.1aabcd67.chunk.js",
+    "index.html": "/calculator-for-meetings/index.html",
+    "main.18086fab.css.map": "/calculator-for-meetings/static/css/main.18086fab.css.map",
+    "main.e94f1856.js.map": "/calculator-for-meetings/static/js/main.e94f1856.js.map",
+    "787.1aabcd67.chunk.js.map": "/calculator-for-meetings/static/js/787.1aabcd67.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.18086fab.css",
+    "static/js/main.e94f1856.js"
+  ]
+}
