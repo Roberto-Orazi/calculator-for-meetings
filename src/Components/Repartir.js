@@ -1,12 +1,10 @@
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import DeleteIcon from '@mui/icons-material/Delete';
 import {
-    IconButton,
-
+    IconButton, Typography, Container, Grid, Box
 } from '@mui/material'
-import Box from '@mui/material/Box';
 
 const Repartir = () => {
     const [personas, setPersonas] = useState([{ nombre: "Persona 1", gastos: [0], mostrar: true }]);
@@ -68,9 +66,9 @@ const Repartir = () => {
                 <Row>
                     <Col>
                         <br />
-                        <h1>
+                        <Typography variant="h1" sx={{fontSize:'3rem'}}>
                             Reparti<span>Te</span>
-                        </h1>
+                        </Typography>
                     </Col>
                     <br />
                 </Row>
@@ -142,7 +140,9 @@ const Repartir = () => {
                 <br />
                 <Row>
                     <Col>
-                        <h5>{`El Gasto total fue de $${totalGastos.toFixed(2)}`}</h5>
+                        <Typography variant="h5" sx={{
+                            fontSize: '1rem'
+                        }}>{`El Gasto total fue de $${totalGastos.toFixed(2)}`}</Typography>
                         <input
                             type="number"
                             placeholder="Cantidad de personas"
@@ -156,14 +156,20 @@ const Repartir = () => {
             <br />
             <Row>
                 <Col>
-                    <h5>{`Cada uno tiene que poner $${cantidadARepartirPorPersona.toFixed(2)}`}</h5>
+                    <Typography variant="h5" sx={{
+                        fontSize: '1rem'
+                    }}>{`Cada uno tiene que poner $${cantidadARepartirPorPersona.toFixed(2)}`}</Typography>
 
                     {cantidadQueDebePonerCadaPersona.map((cantidad, index) => (
                         <Col key={index}>
                             {cantidad > 0 ? (
-                                <h5>{`A ${personas[index].nombre} le deben dar $${Math.abs(cantidad).toFixed(2)}`}</h5>
+                                <Typography variant="h5" sx={{
+                                    fontSize: '1rem'
+                                }}>{`A ${personas[index].nombre} le deben dar $${Math.abs(cantidad).toFixed(2)}`}</Typography>
                             ) : (
-                                <h5>{`${personas[index].nombre} tiene que poner $${Math.abs(cantidad).toFixed(2)}`}</h5>
+                                <Typography variant="h5" sx={{
+                                    fontSize: '1rem'
+                                }}>{`${personas[index].nombre} tiene que poner $${Math.abs(cantidad).toFixed(2)}`}</Typography>
                             )}
                         </Col>
                     ))}
