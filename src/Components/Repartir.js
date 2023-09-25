@@ -1,9 +1,9 @@
-import { Row, Col, Button } from "react-bootstrap";
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import DeleteIcon from '@mui/icons-material/Delete';
+import PersonIcon from '@mui/icons-material/Person';
 import {
-    IconButton, Typography, Container, Grid, Box
+    IconButton, Typography, Container, Grid, Box, Button
 } from '@mui/material'
 
 const Repartir = () => {
@@ -63,118 +63,130 @@ const Repartir = () => {
     return (
         <>
             <Container>
-                <Row>
-                    <Col>
-                        <br />
-                        <Typography variant="h1" sx={{fontSize:'3rem'}}>
-                            Reparti<span>Te</span>
-                        </Typography>
-                    </Col>
-                    <br />
-                </Row>
+                <Typography variant="h1" sx={{ fontSize: '3rem' }}>
+                    RepartiTe
+                </Typography>
                 {personas.map((persona, index) =>
                     persona.mostrar ? (
-                        <div key={index}>
-                            <Row>
-                                <i className="fa-solid fa-user"></i>
+                        <Grid container
+                            key={index}
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                marginTop: '1rem'
+                            }}>
+                            <Grid item>
+                                <Box sx={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+
+                                }}><PersonIcon sx={{
+                                    color: '#fff',
+                                    fontSize: '2rem'
+                                }} />
+                                <Typography variant="h5">{persona.nombre}</Typography>
+                                </Box>
                                 <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-                                    <Col>
-                                        <input
-                                            placeholder={`Persona ${index + 1}`}
-                                            value={persona.nombre === `Persona ${index + 1}` ? '' : persona.nombre}
-                                            onChange={(e) => handleNombreChange(e, index)}
+                                    <input
+                                        placeholder={`Persona ${index + 1}`}
+                                        value={persona.nombre === `Persona ${index + 1}` ? '' : persona.nombre}
+                                        onChange={(e) => handleNombreChange(e, index)}
+                                    />
+                                    <IconButton onClick={() => handleEliminarPersona(index)}><DeleteIcon sx={{
+                                        color: '#fff',
+                                        '&:hover': {
+                                            color: 'red'
+                                        }
+                                    }} /></IconButton>
+                                </Box>
+                                {persona.gastos.map((gasto, gastoIndex) => (
+                                    <Box key={gastoIndex} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
+                                        <Form.Control
+                                            className="numero-input"
+                                            type="number"
+                                            placeholder={`$ Gasto ${gastoIndex + 1}`}
+                                            aria-describedby="inputGroupPrepend"
+                                            required
+                                            value={gasto === 0 ? "" : gasto}
+                                            onChange={(e) => handleCantidadChange(e, index, gastoIndex)}
                                         />
-                                    </Col>
-                                    <Col>
-                                        <IconButton onClick={() => handleEliminarPersona(index)}><DeleteIcon sx={{
+
+                                        <IconButton onClick={() => handleEliminarGasto(index, gastoIndex)}><DeleteIcon sx={{
                                             color: '#fff',
                                             '&:hover': {
                                                 color: 'red'
                                             }
                                         }} /></IconButton>
-                                    </Col>
-                                </Box>
-                                {persona.gastos.map((gasto, gastoIndex) => (
-                                    <Box key={gastoIndex} sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }}>
-                                        <Col>
-                                            <Form.Control
-                                                className="numero-input"
-                                                type="number"
-                                                placeholder={`$ Gasto ${gastoIndex + 1}`}
-                                                aria-describedby="inputGroupPrepend"
-                                                required
-                                                value={gasto === 0 ? "" : gasto}
-                                                onChange={(e) => handleCantidadChange(e, index, gastoIndex)}
-                                            />
-
-                                        </Col>
-                                        <Col>
-                                            <IconButton onClick={() => handleEliminarGasto(index, gastoIndex)}><DeleteIcon sx={{
-                                                color: '#fff',
-                                                '&:hover': {
-                                                    color: 'red'
-                                                }
-                                            }} /></IconButton>
-                                        </Col>
                                     </Box>
                                 ))}
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <button onClick={() => handleAgregarGasto(index)}>Agregar Gasto</button>
-                                </Col>
-                            </Row>
-                            <br />
-                            <Col>
-                                <h4>{`${persona.nombre} gastó en total $${persona.gastos.reduce((total, gasto) => total + gasto, 0).toFixed(2)}`}</h4>
-                            </Col>
-                            <br />
-                        </div>
+                            </Grid>
+
+                            <Button
+                                variant="contained"
+                                sx={{ backgroundColor: '#fff', color: '#000', width: '11rem', '&:hover': {
+                                    backgroundColor: '#333',
+                                    color: '#fff',
+                                  }}}
+                                onClick={() => handleAgregarGasto(index)}>
+                                <Typography variant="h6" sx={{
+                                    fontSize: '.8rem',
+                                }}>
+                                    Agregar Gasto
+                                </Typography></Button>
+
+                            <Typography variant="h4" sx={{
+                                fontSize: '1rem',
+                                marginTop: '.5rem'
+                            }}>{`${persona.nombre} gastó en total $${persona.gastos.reduce((total, gasto) => total + gasto, 0).toFixed(2)}`}</Typography>
+
+
+                        </Grid>
                     ) : null
                 )}
-                <Row>
-                    <Col>
-                        <Button onClick={handleAddPersona}>Agregar Persona</Button>
-                    </Col>
-                </Row>
-                <br />
-                <Row>
-                    <Col>
+
+                <Button variant="contained" onClick={handleAddPersona} sx={{ backgroundColor: '#fff', color: '#000', width: '11rem', marginTop: '1rem','&:hover': {
+                                    backgroundColor: '#333',
+                                    color: '#fff',
+                                  }}}>
+                    <Typography variant="h6" sx={{
+                        fontSize: '.8rem',
+                    }}>
+                        Agregar Persona
+                    </Typography>
+                </Button>
+
+
+                <Typography variant="h5" sx={{
+                    fontSize: '1rem',
+                    marginTop: '1rem'
+                }}>{`El Gasto total fue de $${totalGastos.toFixed(2)}`}</Typography>
+                <input
+                    type="number"
+                    placeholder="Cantidad de personas"
+                    value={cantidadPersonas}
+                    onChange={(e) => setCantidadPersonas(parseInt(e.target.value, 10))}
+                />
+            </Container >
+
+            <Typography variant="h5" sx={{
+                fontSize: '1rem'
+            }}>{`Cada uno tiene que poner $${cantidadARepartirPorPersona.toFixed(2)}`}</Typography>
+
+            {cantidadQueDebePonerCadaPersona.map((cantidad, index) => (
+                <Box key={index} >
+                    {cantidad > 0 ? (
                         <Typography variant="h5" sx={{
                             fontSize: '1rem'
-                        }}>{`El Gasto total fue de $${totalGastos.toFixed(2)}`}</Typography>
-                        <input
-                            type="number"
-                            placeholder="Cantidad de personas"
-                            value={cantidadPersonas}
-                            onChange={(e) => setCantidadPersonas(parseInt(e.target.value, 10))}
-                        />
-                    </Col>
-                </Row>
-            </Container>
-
-            <br />
-            <Row>
-                <Col>
-                    <Typography variant="h5" sx={{
-                        fontSize: '1rem'
-                    }}>{`Cada uno tiene que poner $${cantidadARepartirPorPersona.toFixed(2)}`}</Typography>
-
-                    {cantidadQueDebePonerCadaPersona.map((cantidad, index) => (
-                        <Col key={index}>
-                            {cantidad > 0 ? (
-                                <Typography variant="h5" sx={{
-                                    fontSize: '1rem'
-                                }}>{`A ${personas[index].nombre} le deben dar $${Math.abs(cantidad).toFixed(2)}`}</Typography>
-                            ) : (
-                                <Typography variant="h5" sx={{
-                                    fontSize: '1rem'
-                                }}>{`${personas[index].nombre} tiene que poner $${Math.abs(cantidad).toFixed(2)}`}</Typography>
-                            )}
-                        </Col>
-                    ))}
-                </Col>
-            </Row>
+                        }}>{`A ${personas[index].nombre} le deben dar $${Math.abs(cantidad).toFixed(2)}`}</Typography>
+                    ) : (
+                        <Typography variant="h5" sx={{
+                            fontSize: '1rem'
+                        }}>{`${personas[index].nombre} tiene que poner $${Math.abs(cantidad).toFixed(2)}`}</Typography>
+                    )}
+                </Box>
+            ))}
         </>
     );
 };
