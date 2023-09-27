@@ -1,6 +1,6 @@
 import { Nav } from "react-bootstrap"
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import Inicio from "./Inicio"
+import { Faq } from "./Faq"
 import Repartir from "./Repartir"
 import Contacto from "./Contacto"
 const NavBar = () => {
@@ -9,15 +9,15 @@ const NavBar = () => {
             <Nav className="navfullsize">
                 <ul>
                     <li>
-                        <Link to="/">Inicio</Link>
-                        <Link to="/repartir">RepartiTe</Link>
+                        <Link to="/faq">Faq</Link>
+                        <Link to="/">RepartiTe</Link>
                         <Link to="/contacto">Contacto</Link>
                     </li>
                 </ul>
             </Nav>
             <Routes>
-                <Route exact path='/' element={< Inicio />}></Route>
-                <Route exact path='/repartir' element={< Repartir />}></Route>
+                <Route exact path='/faq' element={< Faq />}></Route>
+                <Route exact path='/' element={< Repartir />}></Route>
                 <Route exact path='/contacto' element={< Contacto />}></Route>
             </Routes>
         </Router>

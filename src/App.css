@@ -36,7 +36,7 @@ i{
   margin: 5px 0;
 }
 
-/*NAVBAR*/
+/* NAVBAR*/
 .navfullsize{
   height: 30px;
   background-color: rgb(66, 152, 66);
@@ -55,34 +55,7 @@ ul li a:hover{
 
 }
 
-/*INICIO*/
-h2, h3, p{
-  color: rgb(212, 212, 212);
-}
-.cont-preguntas{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 350px);
-  grid-auto-columns: minmax(100px, 200px);
-
-  padding: 50px;
-  gap: 30px;
-  justify-content: center;
-  align-content: center;
-
-}
-.preguntas{
-
-  text-align: start;
-  background-color: rgba(66, 65, 65, 0.413);
-  padding: 20px;
-}
-.preguntas:hover{
-  transform: scale(1.02);
-}
-.preguntas p{
-  margin-top: 2rem;
-}
-/*contacto*/
+/* contacto*/
 .labeltext{
   color: white;
   text-align: start;
